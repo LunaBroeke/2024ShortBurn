@@ -43,7 +43,7 @@ public class TilePuzzleBehavior : MonoBehaviour, IInteractable
         mainCamera.gameObject.GetComponent<LookScript>().enabled = setTo;
         mainCamera.gameObject.GetComponent<ViewBobbing>().enabled = setTo;
         gmInstance.playerObject.GetComponent<MovementScript>().enabled = setTo;
-        gmInstance.playerObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        gmInstance.playerObject.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
     }
 
     public IEnumerator LerpCamera(AnimationCurve aniCurve, Camera cam, Transform destination)

@@ -119,8 +119,8 @@ public class MovingPieceBehaviour : MonoBehaviour, IInteractable
         { rawMove /= 2; }
 
         Vector3 movementVector = gmInstance.playerObject.transform.right * rawMove.x + gmInstance.playerObject.transform.forward * rawMove.z;
-        movementVector.y = pieceRB.velocity.y;
-        pieceRB.velocity = movementVector;
+        movementVector.y = pieceRB.linearVelocity.y;
+        pieceRB.linearVelocity = movementVector;
     }
 
     public IEnumerator LerpToPositioner()

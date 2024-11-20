@@ -70,8 +70,8 @@ public class MovementScript : MonoBehaviour
         { rawMove /= 1.5f; }
 
         Vector3 movementVector = transform.right * rawMove.x + transform.forward * rawMove.z;
-        movementVector.y = playerRB.velocity.y;
-        playerRB.velocity = movementVector;
+        movementVector.y = playerRB.linearVelocity.y;
+        playerRB.linearVelocity = movementVector;
     }
 
     public void Jump(InputAction.CallbackContext context)
