@@ -77,7 +77,10 @@ public class LookScript : MonoBehaviour
         playerObject.transform.rotation = Quaternion.Euler(0, rotationY, 0);
         camHolder.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
     }
-
+    /// <summary>
+    /// the fucntion
+    /// </summary>
+    /// <returns></returns>
     public GameObject LookingAtGameObject()
     {
         Ray sight = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
