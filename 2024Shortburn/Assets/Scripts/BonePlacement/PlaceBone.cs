@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlaceBone : MonoBehaviour
@@ -8,6 +9,8 @@ public class PlaceBone : MonoBehaviour
     [SerializeField] private Material Glow;
 
     [SerializeField] private bool canPlace;
+
+    [SerializeField] private GameObject bone;
 
     private void Start()
     {
@@ -34,6 +37,14 @@ public class PlaceBone : MonoBehaviour
         {
             renderer.material = Glow;
             canPlace = true;
+            bone = other.gameObject;
+            bone.transform.position = this.transform.position;
+            bone.transform.rotation = this.transform.rotation;
+            Rigidbody rb = bone.GetComponent<Rigidbody>();
+            rb.isKinematic = true;
+            HoldableItem drop = bone.GetComponent<HoldableItem>(); 
+            drop.SetDown(this.transform.position);
+            Destroy(this.gameObject);
         }      
     }
 
@@ -42,7 +53,8 @@ public class PlaceBone : MonoBehaviour
         if (other != null) 
         {
             renderer.material = Ghost;
-            canPlace = true;
+            canPlace = false;
+            bone = null;
         }
     }
 }
