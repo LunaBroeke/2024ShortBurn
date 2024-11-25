@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,6 +21,11 @@ public class HoldingBehavior : MonoBehaviour
 
     bool playerSees;
     bool playerHolds = false;
+    public static event Action PickingUp;
+    public static void TriggerPickUp()
+    {
+        PickingUp?.Invoke();
+    }
 
     public void Start()
     {

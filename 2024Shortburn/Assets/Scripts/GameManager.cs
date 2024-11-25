@@ -43,14 +43,4 @@ public class GameManager : MonoBehaviour
 
         pInputAct = new PlayerInputActions();
     }
-
-    private void Start()
-    {
-
-    }
-
-    private void Update()
-    {
-
-    }
 }
