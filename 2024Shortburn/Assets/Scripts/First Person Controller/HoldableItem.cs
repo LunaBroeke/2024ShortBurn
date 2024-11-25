@@ -31,7 +31,7 @@ public class HoldableItem : MonoBehaviour, IHoldable
         rb.useGravity = false;
         rb.constraints = RigidbodyConstraints.FreezeAll;
         outline.ChangeOutlineColor(outline.interactingColor);
-        HoldingBehavior.TriggerPickUp();
+        HoldingBehavior.TriggerPickUp(gameObject);
     }
 
     public void SetDown(Vector3 setDownPos)

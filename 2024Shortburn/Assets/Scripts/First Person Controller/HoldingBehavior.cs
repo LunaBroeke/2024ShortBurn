@@ -21,10 +21,10 @@ public class HoldingBehavior : MonoBehaviour
 
     bool playerSees;
     bool playerHolds = false;
-    public static event Action PickingUp;
-    public static void TriggerPickUp()
+    public static event Action<GameObject> PickingUp;
+    public static void TriggerPickUp(GameObject obj)
     {
-        PickingUp?.Invoke();
+        PickingUp?.Invoke(obj);
     }
 
     public void Start()
