@@ -10,7 +10,7 @@ public class PlaceBone : MonoBehaviour
 
     [SerializeField] private bool canPlace;
 
-    [SerializeField] private GameObject bone;
+    [SerializeField] private GameObject bone; // for debugging, dont apply anywhere.
 
     private void Start()
     {
@@ -25,26 +25,30 @@ public class PlaceBone : MonoBehaviour
 
     private void PutDownBone()
     {
-        if (canPlace)
+        if (CanPlace(bone))
         {
             Debug.Log("Placing");
-        }
+			bone.transform.position = transform.position;
+			bone.transform.rotation = transform.rotation;
+		}
     }
+    private bool CanPlace(GameObject bone)
+    {
 
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other != null)
         {
             renderer.material = Glow;
             canPlace = true;
-            bone = other.gameObject;
-            bone.transform.position = this.transform.position;
-            bone.transform.rotation = this.transform.rotation;
+            GameObject bone = other.gameObject;
+
             Rigidbody rb = bone.GetComponent<Rigidbody>();
             rb.isKinematic = true;
             HoldableItem drop = bone.GetComponent<HoldableItem>(); 
-            drop.SetDown(this.transform.position);
-            Destroy(this.gameObject);
+            drop.SetDown(transform.position);
+            //Destroy(gameObject);
         }      
     }
 
