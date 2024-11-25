@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public PlayerInputActions pInputAct;
+    public PlayerState playerState;
 
     [Header("Player")]
     public GameObject playerObject;
