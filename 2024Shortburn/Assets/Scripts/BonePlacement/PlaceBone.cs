@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlaceBone : MonoBehaviour
 {
@@ -10,20 +11,22 @@ public class PlaceBone : MonoBehaviour
 
     [SerializeField] private bool canPlace;
 
-    [SerializeField] private GameObject bone; // for debugging, dont apply anywhere.
+    [SerializeField] private GameObject bone;
+    PlayerInputActions input;
 
     private void Start()
     {
         renderer = GetComponent<MeshRenderer>();
         canPlace = false;
+        input = GameManager.instance.pInputAct;
     }
 
     private void Update()
     {
-        PutDownBone();
+
     }
 
-    private void PutDownBone()
+    private void PutDownBone(InputAction.CallbackContext ctx)
     {
         if (CanPlace(bone))
         {
@@ -34,17 +37,19 @@ public class PlaceBone : MonoBehaviour
     }
     private bool CanPlace(GameObject bone)
     {
-
+        float d = StaticCalculators.Distance(bone.transform.position, transform.position);
+        Debug.Log(d);
+        if (d < 5)
+            return true; else return false;
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other != null)
         {
             renderer.material = Glow;
-            canPlace = true;
-            GameObject bone = other.gameObject;
-
+            bone = other.gameObject;
             Rigidbody rb = bone.GetComponent<Rigidbody>();
+            input.Player.PickUp.performed += PutDownBone;
             rb.isKinematic = true;
             HoldableItem drop = bone.GetComponent<HoldableItem>(); 
             drop.SetDown(transform.position);
@@ -56,6 +61,7 @@ public class PlaceBone : MonoBehaviour
     {
         if (other != null) 
         {
+            input.Player.PickUp.performed -= PutDownBone;
             renderer.material = Ghost;
             canPlace = false;
             bone = null;

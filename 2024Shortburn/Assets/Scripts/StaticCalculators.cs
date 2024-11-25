@@ -1,16 +1,9 @@
 using UnityEngine;
 
-public class StaticCalculators : MonoBehaviour
+public static class StaticCalculators
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	public static float Distance(Vector3 pointA, Vector3 pointB)
+	{
+		return Vector3.Distance(pointA, pointB);
+	}
 }
