@@ -12,6 +12,7 @@ public class BonePulling : MonoBehaviour
     {
         gameManager = GameManager.instance;
         HoldingBehavior.PickingUp += SelectBone;
+        HoldingBehavior.SettingDown += DeselectBone;
     }
     private void HandleOnPull(InputAction.CallbackContext ctx)
     {
@@ -28,12 +29,17 @@ public class BonePulling : MonoBehaviour
     {
         if (obj.CompareTag("Bone"))
         {
+            gameManager.playerState = PlayerState.Pulling;
             selectedBone = obj;
         }
     }
+    private void DeselectBone(GameObject obj)
+    {
+        gameManager.playerState = PlayerState.Player;
+        selectedBone = null;
+    }
     private void Update()
     {
-
         if (selectedBone != null)
         {
             selectedBone.transform.Translate(moveDirection.x * Time.deltaTime * 5f, 0f, moveDirection.y * Time.deltaTime * 5f);

@@ -22,9 +22,14 @@ public class HoldingBehavior : MonoBehaviour
     bool playerSees;
     bool playerHolds = false;
     public static event Action<GameObject> PickingUp;
+    public static event Action<GameObject> SettingDown;
     public static void TriggerPickUp(GameObject obj)
     {
         PickingUp?.Invoke(obj);
+    }
+    public static void TriggerSettingDown(GameObject obj)
+    {
+        SettingDown?.Invoke(obj);
     }
 
     public void Start()

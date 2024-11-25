@@ -42,5 +42,6 @@ public class HoldableItem : MonoBehaviour, IHoldable
         rb.useGravity = true;
         rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
         outline.ChangeOutlineColor(outline.outlineColor);
+        HoldingBehavior.TriggerSettingDown(gameObject);
     }
 }
