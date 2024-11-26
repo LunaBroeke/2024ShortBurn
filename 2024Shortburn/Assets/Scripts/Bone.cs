@@ -4,7 +4,8 @@ public class Bone : MonoBehaviour
 {
     private bool isMoving;
     public float health;
-    private Vector3 respawnPoint;
+    public float maxHealth;
+    [SerializeField] private Vector3 respawnPoint;
 
     void Update()
     {
@@ -27,5 +28,6 @@ public class Bone : MonoBehaviour
     private void OnDeath()
     {
         transform.position = respawnPoint;
+        health = maxHealth;
     }
 }
