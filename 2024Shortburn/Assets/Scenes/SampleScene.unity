@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 1240481005}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Bone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -503,6 +503,7 @@ MonoBehaviour:
   Ghost: {fileID: 2100000, guid: e51a10e48395a214bb7840bc4aafdd14, type: 2}
   Glow: {fileID: 2100000, guid: e8a7e4e4833eb19428ac9efb629f2864, type: 2}
   canPlace: 0
+  bone: {fileID: 0}
 --- !u!65 &1535698836
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -714,6 +715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3082e4b52a5241d43930c7b9dfcca6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerState: 0
   playerObject: {fileID: 741859675}
   playerLookingAt: {fileID: 0}
   playerHolding: {fileID: 0}
