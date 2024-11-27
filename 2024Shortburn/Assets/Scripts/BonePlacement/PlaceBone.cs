@@ -21,19 +21,18 @@ public class PlaceBone : MonoBehaviour
         input = GameManager.instance.pInputAct;
     }
 
-    private void Update()
-    {
-
-    }
 
     private void PutDownBone(InputAction.CallbackContext ctx)
     {
         if (CanPlace(bone))
         {
             Debug.Log("Placing");
-			bone.transform.position = transform.position;
+            Rigidbody rb = bone.GetComponent<Rigidbody>();
+            rb.isKinematic = true;
+            bone.transform.position = transform.position;
 			bone.transform.rotation = transform.rotation;
-		}
+            Destroy(gameObject);
+        }
     }
     private bool CanPlace(GameObject bone)
     {
@@ -49,11 +48,7 @@ public class PlaceBone : MonoBehaviour
             renderer.material = Glow;
             bone = other.gameObject;
             Rigidbody rb = bone.GetComponent<Rigidbody>();
-            input.Player.PickUp.performed += PutDownBone;
-            rb.isKinematic = true;
-            HoldableItem drop = bone.GetComponent<HoldableItem>(); 
-            drop.SetDown(transform.position);
-            //Destroy(gameObject);
+            input.Player.PickUp.performed += PutDownBone;                       
         }      
     }
 
