@@ -242,6 +242,10 @@ PrefabInstance:
       propertyPath: currentReachDistance
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3838512949198824296, guid: 196d1d87eb773b64995509fae9190fb4, type: 3}
+      propertyPath: movementSpeed
+      value: 0.55
+      objectReference: {fileID: 0}
     - target: {fileID: 3838512949198824298, guid: 196d1d87eb773b64995509fae9190fb4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
