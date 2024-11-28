@@ -31,6 +31,7 @@ public class HoldableItem : MonoBehaviour, IHoldable
         rb.useGravity = false;
         rb.constraints = RigidbodyConstraints.FreezeAll;
         outline.ChangeOutlineColor(outline.interactingColor);
+        HoldingBehavior.TriggerPickUp(gameObject);
     }
 
     public void SetDown(Vector3 setDownPos)
@@ -41,5 +42,6 @@ public class HoldableItem : MonoBehaviour, IHoldable
         rb.useGravity = true;
         rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
         outline.ChangeOutlineColor(outline.outlineColor);
+        HoldingBehavior.TriggerSettingDown(gameObject);
     }
 }

@@ -30,7 +30,8 @@ public class MovementScript : MonoBehaviour
         pInputAct = gmInstance.pInputAct;
         movement = pInputAct.Player.Move;
         jump = pInputAct.Player.Jump;
-        EnableActions();
+		jump.performed += Jump;
+		//EnableActions();
     }
 
     public void EnableActions()
@@ -38,18 +39,23 @@ public class MovementScript : MonoBehaviour
         movement.Enable();
 
         jump.Enable();
-        jump.performed += Jump;
+
     }
 
-    public void OnDisable() 
+    public void DisableActions() 
     { 
         movement.Disable();
         jump.Disable();
     }
 
-    public void Update()
+	private void OnDisable()
+	{
+		DisableActions();
+	}
+
+	public void Update()
     {
-        if (!movement.enabled) { EnableActions(); }
+        //if (!movement.enabled) { EnableActions(); }
         if (!gmInstance.isPaused) { Movement(); }
 
         gmInstance.playerMoving = moving;

@@ -37,7 +37,7 @@ public class LookScript : MonoBehaviour
 
     private void Update()
     {
-        if (!look.enabled) { EnableActions(); }
+        //if (!look.enabled) { EnableActions(); }
         if (!gmInstance.isPaused) { Rotation(); }
 
         gmInstance.playerLookingAt = LookingAtGameObject();
@@ -49,7 +49,7 @@ public class LookScript : MonoBehaviour
     {
         pInputAct = gmInstance.pInputAct;
         look = pInputAct.Player.Look;
-        EnableActions();
+        //EnableActions();
     }
 
     public void EnableActions()

@@ -85,7 +85,7 @@ public class OutlineBehavior : MonoBehaviour
     public IEnumerator SetOutline(bool onOrOff)
     {
         Keyframe lastKF = gmInstance.outlineLerp.keys[gmInstance.outlineLerp.length - 1];
-        Debug.Log(lastKF.time);
+        //Debug.Log(lastKF.time);
 
         float t = 0;
         while (t < lastKF.time)
