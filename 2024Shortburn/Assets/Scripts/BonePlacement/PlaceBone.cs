@@ -12,6 +12,9 @@ public class PlaceBone : MonoBehaviour
     [SerializeField] private bool canPlace;
 
     [SerializeField] private GameObject bone;
+
+    [SerializeField] private PuzzleManager manager;
+
     PlayerInputActions input;
 
     private void Start()
@@ -27,17 +30,12 @@ public class PlaceBone : MonoBehaviour
     {
         if (CanPlace(bone))
         {
-            Debug.Log("Placing bone...");
-
+            manager.Count();
             Rigidbody rb = bone.GetComponent<Rigidbody>();
-            rb.isKinematic = true; // Disable physics
-
-            bone.transform.position = transform.position; // Match position
-            bone.transform.rotation = transform.rotation; // Match rotation
-
-            Debug.Log($"Bone placed at position: {bone.transform.position}, rotation: {bone.transform.rotation.eulerAngles}");
-
-            Destroy(gameObject); // Remove the PlaceBone object
+            rb.isKinematic = true; 
+            bone.transform.position = transform.position; 
+            bone.transform.rotation = transform.rotation; 
+            Destroy(gameObject); 
         }
     }
     private bool CanPlace(GameObject bone)
