@@ -7,7 +7,7 @@ public class HoldableItem : MonoBehaviour, IHoldable
     GameManager gmInstance;
     OutlineBehavior outline;
     public LayerMask defaultLayer;
-    public Vector3 customRotation;
+    //public Vector3 customRotation;
     Rigidbody rb;
 
     public void Start()
@@ -19,13 +19,13 @@ public class HoldableItem : MonoBehaviour, IHoldable
     }
     public void Update()
     {
-        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        //transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
     }
 
     public void PickUp()
     {
         gameObject.transform.SetParent(gmInstance.itemHolder.transform);
-        gameObject.transform.localRotation = Quaternion.Euler(customRotation);
+        //gameObject.transform.localRotation = Quaternion.Euler(customRotation);
         gmInstance.playerHolding = gameObject;
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
         rb.useGravity = false;

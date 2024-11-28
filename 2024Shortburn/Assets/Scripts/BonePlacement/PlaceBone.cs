@@ -19,6 +19,7 @@ public class PlaceBone : MonoBehaviour
         renderer = GetComponent<MeshRenderer>();
         canPlace = false;
         input = GameManager.instance.pInputAct;
+        renderer.material = Ghost;
     }
 
 
@@ -26,12 +27,17 @@ public class PlaceBone : MonoBehaviour
     {
         if (CanPlace(bone))
         {
-            Debug.Log("Placing");
+            Debug.Log("Placing bone...");
+
             Rigidbody rb = bone.GetComponent<Rigidbody>();
-            rb.isKinematic = true;
-            bone.transform.position = transform.position;
-			bone.transform.rotation = transform.rotation;
-            Destroy(gameObject);
+            rb.isKinematic = true; // Disable physics
+
+            bone.transform.position = transform.position; // Match position
+            bone.transform.rotation = transform.rotation; // Match rotation
+
+            Debug.Log($"Bone placed at position: {bone.transform.position}, rotation: {bone.transform.rotation.eulerAngles}");
+
+            Destroy(gameObject); // Remove the PlaceBone object
         }
     }
     private bool CanPlace(GameObject bone)
@@ -43,10 +49,9 @@ public class PlaceBone : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other != null)
+        if (other.gameObject == bone)
         {
-            renderer.material = Glow;
-            bone = other.gameObject;
+            renderer.material = Glow;          
             Rigidbody rb = bone.GetComponent<Rigidbody>();
             input.Player.PickUp.performed += PutDownBone;                       
         }      
@@ -54,12 +59,11 @@ public class PlaceBone : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other != null) 
+        if (other.gameObject == bone) 
         {
             input.Player.PickUp.performed -= PutDownBone;
             renderer.material = Ghost;
-            canPlace = false;
-            bone = null;
+            canPlace = false;           
         }
     }
 }
