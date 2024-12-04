@@ -85,8 +85,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""name"": ""Arm Manipulation"",
                     ""type"": ""Button"",
                     ""id"": ""fd415fe2-b6c6-4501-a593-8581f4cb98c1"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
+                    ""expectedControlType"": """",
+                    ""processors"": ""Scale(factor=10)"",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 }
@@ -868,15 +868,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             ""id"": ""68362a45-b025-45e6-a00c-5d7fc1fd838b"",
             ""actions"": [
                 {
-                    ""name"": ""Rotate"",
-                    ""type"": ""Value"",
-                    ""id"": ""6036b8cd-839e-42db-92ef-a9ae7bc29faf"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""Move"",
                     ""type"": ""Value"",
                     ""id"": ""e52097f4-4a81-4934-ae16-da08356c52fe"",
@@ -884,42 +875,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Rotate"",
+                    ""type"": ""Value"",
+                    ""id"": ""81ee97d4-149e-4d5f-8b1c-7d7bad388be8"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": ""AD"",
-                    ""id"": ""3e914c6f-cde4-464c-8911-d23d2b96b771"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""7f09c268-fedf-4557-944d-3dcf4394fc38"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""4de1e734-9fee-4196-b2d8-29a178f1bc78"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
                 {
                     ""name"": ""WASD"",
                     ""id"": ""a265d359-36a7-4094-9b77-f3d9714e9aea"",
@@ -937,7 +904,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -959,7 +926,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -974,6 +941,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""25edbe3d-ecd7-4ba6-a74d-e20999d815d0"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -985,7 +963,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""name"": ""Save"",
                     ""type"": ""Button"",
                     ""id"": ""5041474a-d736-4e78-a6ba-11235beb8df5"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -1004,6 +982,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""type"": ""Button"",
                     ""id"": ""93e7209b-9998-4f2a-bb89-6acf92467675"",
                     ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AdvanceState"",
+                    ""type"": ""Button"",
+                    ""id"": ""3bf78ba5-3156-4943-9eaa-f64668265c76"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -1040,6 +1027,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PauseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cd77a21c-6600-402a-ad10-3fb51394cb9e"",
+                    ""path"": ""<Keyboard>/backslash"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""AdvanceState"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1132,13 +1130,14 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         // ObjectManipulaton
         m_ObjectManipulaton = asset.FindActionMap("ObjectManipulaton", throwIfNotFound: true);
-        m_ObjectManipulaton_Rotate = m_ObjectManipulaton.FindAction("Rotate", throwIfNotFound: true);
         m_ObjectManipulaton_Move = m_ObjectManipulaton.FindAction("Move", throwIfNotFound: true);
+        m_ObjectManipulaton_Rotate = m_ObjectManipulaton.FindAction("Rotate", throwIfNotFound: true);
         // Debug
         m_Debug = asset.FindActionMap("Debug", throwIfNotFound: true);
         m_Debug_Save = m_Debug.FindAction("Save", throwIfNotFound: true);
         m_Debug_Load = m_Debug.FindAction("Load", throwIfNotFound: true);
         m_Debug_PauseMenu = m_Debug.FindAction("PauseMenu", throwIfNotFound: true);
+        m_Debug_AdvanceState = m_Debug.FindAction("AdvanceState", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -1420,14 +1419,14 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     // ObjectManipulaton
     private readonly InputActionMap m_ObjectManipulaton;
     private List<IObjectManipulatonActions> m_ObjectManipulatonActionsCallbackInterfaces = new List<IObjectManipulatonActions>();
-    private readonly InputAction m_ObjectManipulaton_Rotate;
     private readonly InputAction m_ObjectManipulaton_Move;
+    private readonly InputAction m_ObjectManipulaton_Rotate;
     public struct ObjectManipulatonActions
     {
         private @PlayerInputActions m_Wrapper;
         public ObjectManipulatonActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Rotate => m_Wrapper.m_ObjectManipulaton_Rotate;
         public InputAction @Move => m_Wrapper.m_ObjectManipulaton_Move;
+        public InputAction @Rotate => m_Wrapper.m_ObjectManipulaton_Rotate;
         public InputActionMap Get() { return m_Wrapper.m_ObjectManipulaton; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1437,22 +1436,22 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_ObjectManipulatonActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_ObjectManipulatonActionsCallbackInterfaces.Add(instance);
-            @Rotate.started += instance.OnRotate;
-            @Rotate.performed += instance.OnRotate;
-            @Rotate.canceled += instance.OnRotate;
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Rotate.started += instance.OnRotate;
+            @Rotate.performed += instance.OnRotate;
+            @Rotate.canceled += instance.OnRotate;
         }
 
         private void UnregisterCallbacks(IObjectManipulatonActions instance)
         {
-            @Rotate.started -= instance.OnRotate;
-            @Rotate.performed -= instance.OnRotate;
-            @Rotate.canceled -= instance.OnRotate;
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Rotate.started -= instance.OnRotate;
+            @Rotate.performed -= instance.OnRotate;
+            @Rotate.canceled -= instance.OnRotate;
         }
 
         public void RemoveCallbacks(IObjectManipulatonActions instance)
@@ -1477,6 +1476,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Debug_Save;
     private readonly InputAction m_Debug_Load;
     private readonly InputAction m_Debug_PauseMenu;
+    private readonly InputAction m_Debug_AdvanceState;
     public struct DebugActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1484,6 +1484,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Save => m_Wrapper.m_Debug_Save;
         public InputAction @Load => m_Wrapper.m_Debug_Load;
         public InputAction @PauseMenu => m_Wrapper.m_Debug_PauseMenu;
+        public InputAction @AdvanceState => m_Wrapper.m_Debug_AdvanceState;
         public InputActionMap Get() { return m_Wrapper.m_Debug; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1502,6 +1503,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @PauseMenu.started += instance.OnPauseMenu;
             @PauseMenu.performed += instance.OnPauseMenu;
             @PauseMenu.canceled += instance.OnPauseMenu;
+            @AdvanceState.started += instance.OnAdvanceState;
+            @AdvanceState.performed += instance.OnAdvanceState;
+            @AdvanceState.canceled += instance.OnAdvanceState;
         }
 
         private void UnregisterCallbacks(IDebugActions instance)
@@ -1515,6 +1519,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @PauseMenu.started -= instance.OnPauseMenu;
             @PauseMenu.performed -= instance.OnPauseMenu;
             @PauseMenu.canceled -= instance.OnPauseMenu;
+            @AdvanceState.started -= instance.OnAdvanceState;
+            @AdvanceState.performed -= instance.OnAdvanceState;
+            @AdvanceState.canceled -= instance.OnAdvanceState;
         }
 
         public void RemoveCallbacks(IDebugActions instance)
@@ -1602,13 +1609,14 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     }
     public interface IObjectManipulatonActions
     {
-        void OnRotate(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
     }
     public interface IDebugActions
     {
         void OnSave(InputAction.CallbackContext context);
         void OnLoad(InputAction.CallbackContext context);
         void OnPauseMenu(InputAction.CallbackContext context);
+        void OnAdvanceState(InputAction.CallbackContext context);
     }
 }
